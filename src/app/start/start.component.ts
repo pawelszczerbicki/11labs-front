@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {CommandModule} from "@angular/cli/src/command-builder/command-module";
 import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-start',
@@ -18,7 +17,7 @@ export class StartComponent {
   ages = Array.from({length: 11}, (_, i) => i + 5);
   elements = ['Castles', 'Princesses', 'Dragons', 'Unicorns', 'Pirates', 'Robots', 'Dinosaurs', 'Space', 'Elves', 'Knights'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.surveyForm = this.fb.group({
       lesson: [''],
       age: [''],
@@ -35,9 +34,7 @@ export class StartComponent {
     this.step--;
   }
 
-  submitForm(): void {
-    console.log(this.surveyForm.value);
-  }
+  navigate = () => this.router.navigate(["story"], {state: this.surveyForm.value});
 
   toggleElement(element: string): void {
     const elements = this.surveyForm.value.elements as string[];
@@ -47,6 +44,4 @@ export class StartComponent {
       this.surveyForm.patchValue({elements: [...elements, element]});
     }
   }
-
-
 }

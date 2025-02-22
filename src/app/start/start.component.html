@@ -1,6 +1,5 @@
 <div class="container mt-4">
   <form [formGroup]="surveyForm">
-
     <!-- Step 1: Select a lesson -->
     <div *ngIf="step === 1">
       <h3>Select a lesson to teach</h3>
@@ -54,7 +53,7 @@
       <h3>Enter child's name</h3>
       <input type="text" class="form-control" formControlName="childName" placeholder="Child's name">
       <button class="btn btn-secondary mt-3 me-2" (click)="prevStep()">Back</button>
-      <button class="btn btn-success mt-3" [routerLink]="['/story']"  [disabled]="!surveyForm.value.childName">Submit</button>
+      <a class="btn btn-success mt-3" (click)="navigate()">Submit</a>
     </div>
   </form>
 </div>

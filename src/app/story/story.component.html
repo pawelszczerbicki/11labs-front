@@ -1,3 +1,10 @@
-<p>story works!</p>
+@if (loading) {
+  Generating best story for you!
+  <app-loading></app-loading>
+}
+<div class="audio-player">
+  <audio #audioPlayer controls>
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
+</div>
 
-<button class="btn-secondary" (click)="play()">play</button>
