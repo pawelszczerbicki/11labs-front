@@ -1,0 +1,8 @@
+<div class="modal-content">
+  <div class="modal-header">Potwiedzenie</div>
+  <div class="modal-body">{{ text ?? 'Czy napewno chcesz usunąć ?' }}</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" aria-label="Close" (click)="activeModal.dismiss()">{{ cancelText ?? 'Anuluj' }}</button>
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirm()">{{confirmText??'Usuń'}}</button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="dropdown form-group">
+  @if (label) {
+    <label [for]="label" class="form-label">{{ label }}</label>
+  }
+  <input class="form-control" data-bs-toggle="dropdown" [placeholder]="label" aria-haspopup="true" [type]="type"
+         aria-expanded="false" [value]="selected" [id]="label" [readOnly]="readonly" autocomplete="nope"
+         (keyup.enter)="onSelected.emit(input.value); input.value = ''" #input
+         (input)="onChange.emit(input.value)">
+  <div class="dropdown-menu w-100 scroll-container">
+    @for (i of items; track i) {
+      <span class="dropdown-item pointer" (click)="onSelected.emit(i)">
+        @if (lineTemplate) {
+          <ng-container *ngTemplateOutlet="lineTemplate;context: {item: i}"></ng-container>
+        } @else {
+          {{ i }}
+        }
+      </span>
+    }
+  </div>
+</div>
