@@ -22,7 +22,7 @@ export class StartComponent {
       lesson: [''],
       age: [''],
       elements: [[]],
-      childName: ['']
+      name: ['']
     });
   }
 

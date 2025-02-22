@@ -1,5 +1,5 @@
 export interface Story {
-  kidName: string
+  name: string
   lesson: string
   age: string
   elements: string[]

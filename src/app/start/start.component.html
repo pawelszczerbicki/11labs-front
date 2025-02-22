@@ -51,7 +51,7 @@
     <!-- Step 4: Enter child's name -->
     <div *ngIf="step === 4">
       <h3>Enter child's name</h3>
-      <input type="text" class="form-control" formControlName="childName" placeholder="Child's name">
+      <input type="text" class="form-control" formControlName="name" placeholder="Child's name">
       <button class="btn btn-secondary mt-3 me-2" (click)="prevStep()">Back</button>
       <a class="btn btn-success mt-3" (click)="navigate()">Submit</a>
     </div>

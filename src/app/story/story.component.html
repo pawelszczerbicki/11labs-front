@@ -1,5 +1,25 @@
+<h2>Based on your input</h2>
+<p><strong>Kid:</strong> {{ story.name }}</p>
+<p><strong>Lesson:</strong> {{ story.lesson }}</p>
+<p><strong>Age:</strong> {{ story.age }}</p>
+<p><strong>Elements:</strong></p>
+<ul>
+  @for(e of story.elements; track $index){
+    <li>{{ e }}</li>
+  }
+</ul>
+@if (generatedStory) {
+  <p class="text-muted">{{generatedStory.story_beginning}}</p>
+  <p>
+    <button class="btn btn-success" (click)="generateAudio()">Read me please !</button>
+  </p>
+}
 @if (loading) {
   Generating best story for you!
+  <app-loading></app-loading>
+}
+@if(generatingAudio){
+  We are generating best audio for your kid
   <app-loading></app-loading>
 }
 <div class="audio-player">
