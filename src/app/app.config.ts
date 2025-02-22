@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({eventCoalescing: true}),
     importProvidersFrom([
       CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
-      AngularFireModule.initializeApp(environment.firebase),
+      // AngularFireModule.initializeApp(environment.firebase),
     ]),
     provideRouter(routes),
     provideHttpClient(withInterceptors([httpInterceptor])),

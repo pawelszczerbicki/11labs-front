@@ -2,10 +2,11 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {CommandModule} from "@angular/cli/src/command-builder/command-module";
 import {CommonModule} from "@angular/common";
+import {RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-start',
-  imports: [ReactiveFormsModule, CommonModule,],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './start.component.html',
   styleUrl: './start.component.css'
 })
@@ -46,5 +47,6 @@ export class StartComponent {
       this.surveyForm.patchValue({elements: [...elements, element]});
     }
   }
+
 
 }

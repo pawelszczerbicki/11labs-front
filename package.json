@@ -25,6 +25,7 @@
     "angular-calendar": "^0.31.1",
     "bootstrap": "^5.3.3",
     "date-fns": "^4.1.0",
+    "elevenlabs": "^1.51.0",
     "firebase": "^11.2.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",

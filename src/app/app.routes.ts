@@ -7,6 +7,7 @@ import {ErrorComponent} from "./auth/error/error.component";
 import {CallbackComponent} from "./auth/callback/callback.component";
 import {SendComponent} from "./auth/send/send.component";
 import {StartComponent} from "./start/start.component";
+import {StoryComponent} from "./story/story.component";
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -32,6 +33,7 @@ export const routes: Routes = [
   {
     path: '', component: EmptyComponent, children: [
       {path: '', component: StartComponent},
+      {path: 'story', component: StoryComponent},
       {path: 'login', component: LoginComponent},
       {path: 'login/error', component: ErrorComponent},
       {path: 'login/callback', component: CallbackComponent},
