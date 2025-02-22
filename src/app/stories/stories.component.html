@@ -1,0 +1,62 @@
+<div class="header mt-md-5">
+  <div class="header-body">
+    <div class="row align-items-center">
+      <div class="col"><h6 class="header-pretitle">Main</h6>
+        <h1 class="header-title">Stories</h1></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col">
+
+        <!-- Title -->
+        <h4 class="card-header-title">
+          Stories </h4>
+
+      </div>
+      <div class="col-auto">
+        <a class="btn btn-sm btn-primary" routerLink="/parent/story/create">
+          Add story
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    @if (loading) {
+      <app-loading></app-loading>
+    } @if (!loading && !stories?.length) {
+    <app-no-data text="No stories found"></app-no-data>
+  } @else {
+    <div class="list-group list-group-flush my-n3">
+      @for (s of stories; track $index) {
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img class="icon" src="assets/img/stack-of-books.png"/>
+            </div>
+            <div class="col ms-n2">
+
+              <!-- Heading -->
+              <h4 class="mb-1">{{s.name}} - {{ s.lesson }} </h4>
+
+              <!-- Text -->
+              <small class="text-body-secondary">
+                {{ s.elements.join(",") }}
+              </small>
+
+            </div>
+            <div class="col-auto me-n3">
+
+              <!-- Badge -->
+              <button class="btn btn-danger btn-sm" (click)="delete(s.id)">Delete</button>
+            </div>
+          </div> <!-- / .row -->
+        </div>
+      }
+    </div>
+  }
+  </div>
+</div>

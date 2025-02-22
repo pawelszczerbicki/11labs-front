@@ -18,13 +18,13 @@ export const httpInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
 const addBearerToken = async (req: HttpRequest<any>, next: HttpHandlerFn,): Promise<HttpEvent<any>> => {
   const authService = inject(AuthService)
   const token = await authService.getTokenPromise();
-  if (token) {
+
     req = req.clone({
       url: req.url.startsWith("http") ? req.url : `${environment.url}${req.url}`,
-      setHeaders: req.url.startsWith("http") ? {} : {
-        Authorization: `Bearer ${token}`
-      }
+      // setHeaders: req.url.startsWith("http") ? {} : {
+      //   Authorization: `Bearer ${token}`
+      // }
     });
-  }
+
   return lastValueFrom(next(req));
 };

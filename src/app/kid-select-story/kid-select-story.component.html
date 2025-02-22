@@ -1,0 +1,42 @@
+@if (!stories) {
+  <app-loading></app-loading>
+}
+<div class="card">
+<div class="card-body">
+  <div class="list-group list-group-flush my-n3">
+  @for (s of stories; track $index){
+
+      <div class="list-group-item">
+        <div class="row align-items-center">
+          <div class="col-auto">
+
+            <!-- Avatar -->
+            <a [routerLink]="['/kid/story/', s.id]" class="avatar">
+              <img [src]="'https://picsum.photos/200/300?random=' + $index" class="avatar-img rounded-circle">
+            </a>
+
+          </div>
+          <div class="col">
+
+            <!-- Title -->
+            <h4 class="mb-1">
+              <a [routerLink]="['/kid/story/', s.id]">{{s.name}}</a>
+            </h4>
+
+            <!-- Email -->
+            <p class="small text-body-secondary mb-0">
+              <span class="d-block text-reset text-truncate" href="mailt:dianna.smiley@company.com">{{s.lesson}}</span>
+            </p>
+
+          </div>
+          <div class="col-auto">
+            <a class="btn btn-sm btn-white" [routerLink]="['/kid/story/', s.id]">Watch</a>
+          </div>
+        </div> <!-- / .row -->
+      </div>
+
+
+  }
+  </div>
+</div>
+</div>

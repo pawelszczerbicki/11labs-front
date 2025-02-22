@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-3 p-5 text-muted">
+    <small>{{ storyTextToDisplay }}</small>
+  </div>
+  <div class="col-6 d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+    @if (generatedImage) {
+      <img class="story-pic" [src]="generatedImage">
+    } @if (loadingStory) {
+    <app-kid-loader></app-kid-loader>
+    <p class="text-muted mt-3">Unicorns are preparing your story</p>
+  } @if (audioLoaded) {
+    <app-music-bars></app-music-bars>
+    @if (generatedStory?.choices) {
+      <h2 class="mt-5">What you want to do next ?</h2>
+    } @else {
+      <h2>Done ! How was the story ?</h2>
+      <a [routerLink]="['/kid']"> Try another one</a>
+    } @if (showOptions) {
+      <div class="d-flex justify-content-between">
+        @for (o of generatedStory?.choices; track $index) {
+          <div class="card me-5">
+            <div class="pointer card-body" (click)="choose(o)">{{ o }}</div>
+          </div>
+        }
+      </div>
+    }
+  }
+  </div>
+</div>
