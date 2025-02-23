@@ -62,8 +62,8 @@
     <div class="d-flex flex-wrap gap-2">
       @for (voice of voices; track voice.name) {
         <div class="card p-3 pointer"
-             [class.bg-primary]="surveyForm.value.voice === voice.name"
-             (click)="selectVoice(voice.name)">
+             [class.bg-primary]="surveyForm.value.voice === voice.id"
+             (click)="selectVoice(voice.id)">
           {{ voice.name }}
         </div>
       }
