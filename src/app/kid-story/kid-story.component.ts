@@ -129,7 +129,7 @@ export class KidStoryComponent implements OnInit {
       if (index === textLength) {
         clearInterval(this.intervalId); // Zatrzymujemy animację po napisaniu całego tekstu
       }
-    }, 80); // 100ms między literami
+    }, 72); // 100ms między literami
   }
 
   stopAnimation = () => clearInterval(this.intervalId);
