@@ -1,14 +1,13 @@
 .lesson-btn {
   min-width: 140px;
   text-align: center;
-  background-color: #f0f8ff;
+  /*background-color: #f0f8ff;*/
   transition: all 0.3s ease;
   padding: 5px !important;
 }
 
 .lesson-btn:hover {
   transform: translateY(-3px);
-  color: #007bff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 

@@ -3,4 +3,5 @@ export interface Story {
   lesson: string
   age: string
   elements: string[]
+  voice?:string
 }

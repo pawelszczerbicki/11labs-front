@@ -17,39 +17,6 @@ a {
   cursor: pointer;
 }
 
-.cal-time-label-column .cal-hour-segment {
-  border: none !important;
-}
-
-.cal-day-columns .cal-after-hour-start {
-  border-bottom: 1px solid rgba(229, 231, 235) !important;
-}
-
-body[data-bs-theme="dark"] .cal-day-columns .cal-after-hour-start {
-  border-bottom: 1px solid var(--bs-border-color) !important;
-}
-
-body[data-bs-theme="dark"] .cal-week-view, .cal-week-view * {
-  border-color: var(--bs-border-color) !important;
-}
-
-.cal-day-columns .cal-hour-start {
-  border: none !important;
-}
-
-.cal-hour-odd {
-  background-color: inherit !important;
-}
-
-.cal-time {
-  color: var(--bs-secondary-color);
-  font-weight: normal !important;
-}
-
-body[data-bs-theme="dark"] .cal-week-view {
-  background-color: var(--bs-dark);
-}
-
 .toast-success {
   background-color: var(--bs-success) !important;
 }
@@ -64,10 +31,6 @@ body[data-bs-theme="dark"] .cal-week-view {
 
 .toast-warning {
   background-color: var(--bs-warning) !important;
-}
-
-textarea {
-  resize: none;
 }
 
 .pointer {
