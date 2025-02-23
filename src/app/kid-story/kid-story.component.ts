@@ -60,8 +60,10 @@ export class KidStoryComponent implements OnInit {
             .pipe(tap((s) => (this.story = s)))
         ),
         switchMap(() => this.generateText()),
-        tap((s) => this.animateText(s.story)),
-        switchMap(() => forkJoin([this.generateAudio(), this.generateImage()])),
+        switchMap((s) => forkJoin([
+          this.generateAudio().pipe(tap(x => this.animateText(s.story))),
+          this.generateImage()]
+        )),
         tap(() => (this.loadingStory = false))
       )
       .subscribe();
