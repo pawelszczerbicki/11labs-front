@@ -64,7 +64,12 @@ export class StartComponent {
     { name: 'Spacecraft', emoji: '🚀' },
   ];
 
-  voices = [{id: 'dsadasdas', name: "cxddasdas"}]
+  voices = [
+    { id: 'tqA6i6KHhXNOU8bqdxNY', name: 'Winnie-the-Pooh' },
+    { id: 'pQVwW8uwbObGejdyhYiQ', name: 'Rapunzel' },
+    { id: '21m00Tcm4TlvDq8ikWAM', name: 'Rachel' },
+    { id: 'nPczCjzI2devNBz1zQrb', name: 'Brian' }
+  ];
 
   constructor(
     private fb: FormBuilder,
@@ -81,20 +86,15 @@ export class StartComponent {
     });
   }
 
-  nextStep(): void {
-    this.step++;
-  }
-
-  prevStep(): void {
-    this.step--;
+  selectVoice(voice: string) {
+    this.surveyForm.get('voice')?.setValue(voice);
   }
 
   save = () => {
     if (this.surveyForm.value.customElement)
       this.surveyForm.value.elements.push(this.surveyForm.value.customElement);
     this.saving = true;
-    this.http
-      .post('/story', this.surveyForm.value)
+    this.http.post('/story', this.surveyForm.value)
       .pipe(
         tap(() => this.toast.success('Story added')),
         finalize(() => (this.saving = false))

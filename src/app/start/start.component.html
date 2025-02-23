@@ -59,13 +59,13 @@
       formControlName="customElement"
     />
     <h3 class="mt-4">Choose voice</h3>
-
     <div class="d-flex flex-wrap gap-2">
-      @for(voice of voices; track $index){
-        <div  class="card p-3 pointer" [class.border-primary]="surveyForm.value.voice === voice">
-        <input type="radio" [value]="voice" formControlName="voice" class="form-check-input me-2">
-        {{ voice.name }}
-      </div>
+      @for (voice of voices; track voice.name) {
+        <div class="card p-3 pointer"
+             [class.bg-primary]="surveyForm.value.voice === voice.name"
+             (click)="selectVoice(voice.name)">
+          {{ voice.name }}
+        </div>
       }
     </div>
 
