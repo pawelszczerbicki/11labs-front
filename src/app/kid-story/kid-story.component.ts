@@ -79,13 +79,13 @@ export class KidStoryComponent implements OnInit {
     this.showOptions = false;
     if (this.intervalId) clearInterval(this.intervalId);
     this.generateText(o)
-      .pipe(
-        tap((s) => this.animateText(s.story)),
-        switchMap(() => forkJoin([this.generateAudio(), this.generateImage()])),
-        tap(() => (this.loadingStory = false))
-      )
-      .subscribe();
-  };
+      .pipe(switchMap(s => forkJoin([
+          this.generateAudio().pipe(tap(x => this.animateText(s.story))),
+          this.generateImage()
+        ])),
+        tap(() => this.loadingStory = false))
+      .subscribe()
+  }
 
   generateText = (selected?: string) =>
     this.http
@@ -105,26 +105,6 @@ export class KidStoryComponent implements OnInit {
 
   generateAudio = () => {
     this.generatingAudio = true;
-<<<<<<< HEAD
-    this.audioLoaded = false;
-    return this.http
-      .post(
-        '/story/audio',
-        { text: this.generatedStory?.story },
-        { responseType: 'blob' }
-      )
-      .pipe(
-        tap((audioBlob: Blob) => {
-          this.audio = new Audio(URL.createObjectURL(audioBlob)); // Otrzymujemy referencję do elementu audio
-          this.audio!.load(); // Ładujemy audio
-          this.audio!.play();
-          this.audio.addEventListener('ended', () => (this.showOptions = true));
-          this.generatingAudio = false;
-          this.audioLoaded = true;
-        })
-      );
-  };
-=======
     this.audioLoaded = false
     return this.http.post("/story/audio", {text: this.generatedStory?.story, voice: this.story?.voice}, {responseType: 'blob'})
       .pipe(tap((audioBlob: Blob) => {
@@ -136,7 +116,6 @@ export class KidStoryComponent implements OnInit {
         this.audioLoaded = true;
       }));
   }
->>>>>>> refs/remotes/origin/main
 
   animateText(s: string) {
     let index = 0;
