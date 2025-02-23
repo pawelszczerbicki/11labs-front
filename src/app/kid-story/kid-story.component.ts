@@ -92,7 +92,7 @@ export class KidStoryComponent implements OnInit {
   generateAudio = () => {
     this.generatingAudio = true;
     this.audioLoaded = false
-    return this.http.post("/story/audio", {text: this.generatedStory?.story}, {responseType: 'blob'})
+    return this.http.post("/story/audio", {text: this.generatedStory?.story, voice: this.story?.voice}, {responseType: 'blob'})
       .pipe(tap((audioBlob: Blob) => {
         this.audio = new Audio(URL.createObjectURL(audioBlob))  // Otrzymujemy referencję do elementu audio
         this.audio!.load();  // Ładujemy audio
