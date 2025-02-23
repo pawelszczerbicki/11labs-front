@@ -17,6 +17,7 @@ export class StartComponent {
   surveyForm: FormGroup;
   step = 1;
   saving = false;
+
   lessons = [
     { name: 'Courage', emoji: '🦁' },
     { name: 'Thriftiness', emoji: '💰' },
@@ -63,6 +64,8 @@ export class StartComponent {
     { name: 'Spacecraft', emoji: '🚀' },
   ];
 
+  voices = [{id: 'dsadasdas', name: "cxddasdas"}]
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -74,6 +77,7 @@ export class StartComponent {
       lesson: [''],
       elements: [[]],
       customElement: [''],
+      voice: ['']
     });
   }
 
