@@ -3,3 +3,34 @@
   height: auto;
 }
 
+.choice-btn {
+  min-width: 140px;
+  text-align: center;
+  background-color: #f0f8ff;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  color: #333;
+}
+
+.choice-btn:hover {
+  transform: translateY(-3px);
+  color: #007bff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.choice-emojis {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.choice-text {
+  font-size: 1rem;
+  font-weight: 500;
+}

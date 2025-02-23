@@ -15,6 +15,19 @@ import {KidLoaderComponent} from "../shared/kid-loader/kid-loader.component";
   styleUrl: './kid-story.component.css'
 })
 export class KidStoryComponent implements OnInit {
+  splitEmojisAndText(text: string): { emojis: string[], remainingText: string } {
+    const regex = /^([\p{Emoji}\u200d]+[\p{Emoji}\u200d]+)/u;
+    const match = text.match(regex);
+    if (match) {
+      const emojis = Array.from(match[1].match(/\p{Emoji}\u200d*/gu) || []);
+      return {
+        emojis: emojis.slice(0, 2),
+        remainingText: text.slice(match[1].length).trim()
+      };
+    }
+    return { emojis: [], remainingText: text };
+  }
+
   kid?: Kid
   story?: Story
   generatedStory?: StoryTextResponse

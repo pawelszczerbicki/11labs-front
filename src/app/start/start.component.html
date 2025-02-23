@@ -1,47 +1,75 @@
 <div class="header mt-md-5">
   <div class="header-body">
     <div class="row align-items-center">
-      <div class="col"><h6 class="header-pretitle">Main</h6>
-        <h1 class="header-title">Create story</h1></div>
+      <div class="col">
+        <h6 class="header-pretitle">Main</h6>
+        <h1 class="header-title">Create story</h1>
+      </div>
     </div>
   </div>
 </div>
 <div class="container mt-4">
   <form [formGroup]="surveyForm">
     <label for="name" class="form-label">Name</label>
-    <input class="form-control" id="name" placeholder="Story name" formControlName="name">
-    <h3 class="mt-5">Select a lesson to teach</h3>
-    <div class="d-flex flex-wrap gap-2">
-      <span *ngFor="let lesson of lessons"
-            class="badge p-3 pointer"
-            [class.text-bg-light]="surveyForm.value.lesson !== lesson"
-            [class.text-bg-primary]="surveyForm.value.lesson === lesson"
-            (click)="surveyForm.patchValue({ lesson })">
-        {{ lesson }}
-      </span>
+    <input
+      class="form-control"
+      id="name"
+      placeholder="Story name"
+      formControlName="name"
+    />
+    <h3 class="mt-5">
+      What learning do you want to be included in your story?
+    </h3>
+    <div class="d-flex flex-wrap gap-3">
+      <button
+        *ngFor="let lesson of lessons"
+        type="button"
+        class="btn btn-lg p-4 lesson-btn"
+        [class.btn-outline-primary]="surveyForm.value.lesson !== lesson.name"
+        [class.btn-primary]="surveyForm.value.lesson === lesson.name"
+        (click)="surveyForm.patchValue({ lesson: lesson.name })"
+      >
+        <div class="lesson-emoji mb-2">{{ lesson.emoji }}</div>
+        <div class="lesson-name">{{ lesson.name }}</div>
+      </button>
     </div>
 
-    <h3 class="mt-4">Select elements</h3>
-    <div class="d-flex flex-wrap gap-2">
-      <span *ngFor="let element of elements"
-            class="badge p-3 pointer"
-            [class.text-bg-light]="!surveyForm.value.elements.includes(element)"
-            [class.text-bg-primary]="surveyForm.value.elements.includes(element)"
-            (click)="toggleElement(element)">
-        {{ element }}
-      </span>
+    <h3 class="mt-4">What themes do you want your story to have?</h3>
+    <div class="d-flex flex-wrap gap-3">
+      <button
+        *ngFor="let element of elements"
+        type="button"
+        class="btn btn-lg p-4 lesson-btn"
+        [class.btn-outline-primary]="
+          !surveyForm.value.elements.includes(element.name)
+        "
+        [class.btn-primary]="surveyForm.value.elements.includes(element.name)"
+        (click)="toggleElement(element.name)"
+      >
+        <div class="lesson-emoji mb-2">{{ element.emoji }}</div>
+        <div class="lesson-name">{{ element.name }}</div>
+      </button>
     </div>
 
     <label for="name" class="form-label mt-5">Custom elements</label>
-    <input class="form-control" id="name" placeholder="Custom elements" formControlName="customElement">
+    <input
+      class="form-control"
+      id="name"
+      placeholder="Custom elements"
+      formControlName="customElement"
+    />
 
     @if (saving) {
-      <app-loading></app-loading>
+    <app-loading></app-loading>
     } @else {
-    <button class="btn btn-success mt-3" (click)="save()"
-            [disabled]="!surveyForm.value.lesson || !surveyForm.value.elements.length">
-      Save
+    <button
+      class="btn btn-success mt-3"
+      (click)="save()"
+      [disabled]="!surveyForm.value.lesson || !surveyForm.value.elements.length"
+    >
+      ✨ Create a story ✨
     </button>
-  }
+    <br /><br /><br /><br />
+    }
   </form>
 </div>

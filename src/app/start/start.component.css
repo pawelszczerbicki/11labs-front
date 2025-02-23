@@ -1,0 +1,39 @@
+.lesson-btn {
+  min-width: 140px;
+  text-align: center;
+  background-color: #f0f8ff;
+  transition: all 0.3s ease;
+  padding: 5px !important;
+}
+
+.lesson-btn:hover {
+  transform: translateY(-3px);
+  color: #007bff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-btn.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.lesson-btn.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.lesson-emoji {
+  font-size: 2rem;
+}
+
+.lesson-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+h3,
+label.form-label {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
