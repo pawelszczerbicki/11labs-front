@@ -25,9 +25,9 @@
         <p class="text-muted mt-3">Unicorns are preparing your story</p>
       </div>
     } @if (audioLoaded) {
-    <app-music-bars></app-music-bars>
-
-    @if (generatedStory?.choices && showOptions) {
+    @if (!showOptions) {
+      <app-music-bars></app-music-bars>
+    } @if (generatedStory?.choices && showOptions) {
       <h2 class="choice-title">What do you want to do next?</h2>
       <div class="choices-container">
         @for (o of generatedStory?.choices; track $index) {
